@@ -2,8 +2,8 @@
 
 
 import axios from 'axios';
-
-
+import { config } from 'dotenv';
+config();
 export const downloadFileFromOneDrive = async (url) => {
     console.log('before getting the token====================================')
     const accessToken = await getAccessToken();
@@ -30,11 +30,11 @@ export const downloadFileFromOneDrive = async (url) => {
 };
 
 const getAccessToken = async () => {
-    const clientId = "29e768ba-2c30-494d-8e27-ef064b353333"; //  client ID
-    const clientSecret = "p088Q~-WOhQirN32pupi8dfrd6R3LZa18xnY7cH_"; //  client secret
-    const tenantId = "2b0a3b04-16bd-4638-be57-5622527eb55e"; // tenant ID
-
-
+   
+    const clientId = process.env.CLIENT_ID; // client ID
+    const clientSecret = process.env.CLIENT_SECRET; // client secret
+    const tenantId = process.env.TENANT_ID; // tenant ID
+    
    const params = new URLSearchParams();
     params.append('client_id', clientId);
     params.append('client_secret', clientSecret);
