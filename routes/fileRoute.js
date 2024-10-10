@@ -5,6 +5,6 @@ import { downloadFile } from '../controllers/fileController.js';
 export const router = express.Router();
 
 // Define route for downloading file
-router.post('/download', downloadFile);
+router.get('/download', downloadFile);
 
 export default router;
